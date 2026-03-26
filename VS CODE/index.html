@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Essence Automóveis</title>
-    
+    <title>Essence Automóveis</title>
+
     <!-- Importando a fonte moderna Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,23 +16,63 @@
 </head>
 
 <body>
-    <div class="navbar">
+    <div class="navbar" id="navbar">
+        <img src="IMAGENS/logo.jpg" class="logo" id="logo-btn" style="cursor: pointer;">
         <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i>Inicio</a>
-        <a href="search.html"><i class="fa fa-fw fa-search"></i>Carros</a>
+        <a href="carros.html"><i class="fa fa-fw fa-search"></i>Carros</a>
         <a href="contact.html"><i class="fa fa-fw fa-envelope"></i>Contato</a>
-        <a href="./login.html"><i class="fa fa-fw fa-user"></i>Login</a>
+        <a href="login.html"><i class="fa fa-fw fa-user"></i>Login</a>
     </div>
+    <div class="destaque">
+        <h1>Essence</h1>
+        <h2><span class="autocor">Auto</span>móveis</h2>
+    </div>
+    <div class="menuslide" id="menuslide">
+        <!-- SLIDE 1 -->
+        <div class="menubox fade">
+            <div class="side-content left">
+                <h3 class="slide-title">Tradição</h3>
+                <p class="slide-desc">Desde 2020 entregando confiança.</p>
+            </div>
 
-    <h1>Essence Automóveis </h1>
+            <div class="center-image">
+                <img src="IMAGENS/carro1.png" alt="Carro em destaque">
+            </div>
 
-    <div class="galeria-grid">
+            <div class="side-content right">
+                <h3 class="slide-title">Qualidade</h3>
+                <button class="slide-btn">Ver Estoque</button>
+            </div>
+        </div>
 
+        <!-- SLIDE 2 -->
+        <div class="menubox fade">
+            <div class="side-content left">
+                <h3 class="slide-title">Luxury</h3>
+                <p class="slide-desc">Modelos exclusivos para você.</p>
+            </div>
 
+            <div class="center-image">
+                <img src="IMAGENS/carro2.png" alt="Carro em destaque">
+            </div>
 
-    </div> <div class="footer"> 
+            <div class="side-content right">
+                <h3 class="slide-title">Oferta</h3>
+                <button class="slide-btn">Saiba Mais</button>
+            </div>
+        </div>
+
+        <!-- Setas -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <h2 class="sobrenosmenu"> Sobre Nós</h2>
+
+    <footer>
         <p>&copy; Todos os direitos reservados</p>
-    </div>
+    </footer>
 
     <script src="./script.js"></script>
 </body>
+
 </html>
