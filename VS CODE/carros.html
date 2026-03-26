@@ -15,59 +15,63 @@
 </head>
 
 <body>
-        <div class="bg-image-fade"></div>
-    <div class="navbar">
-        <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i>Inicio</a>
-        <a href="search.html"><i class="fa fa-fw fa-search"></i>Carros</a>
+    <div class="navbar" id="navbar">
+        <img src="imagens/logo.jpg" class="logo">
+        <a href="index.html"><i class="fa fa-fw fa-home"></i>Inicio</a>
+        <a class="active" href="carros.html"><i class="fa fa-fw fa-search"></i>Carros</a>
         <a href="contact.html"><i class="fa fa-fw fa-envelope"></i>Contato</a>
         <a href="./login.html"><i class="fa fa-fw fa-user"></i>Login</a>
     </div>
-    <h1>Essence <span class="auto">Automóveis</span> </h1>
+   <div class="destaque">
+        <h1>Essence</h1>
+        <h2><span class="autocor">Auto</span>móveis</h2>
+    </div>
 
     <div class="galeria-grid">
     
     <!-- SLIDESHOW 1: POLO -->
     <div class="slideshow-container">
         <div class="mySlides fade">
-            <img src="imagens/polo1.jpg" style="width:100%">
+            <img src="./IMAGENS/polo1.jpg" style="width:100%">
         </div>
         <div class="mySlides fade">
-            <img src="imagens/polo2.jpg" style="width:100%">
+            <img src="./IMAGENS/polo2.jpg" style="width:100%">
         </div>
         <div class="numbertext"></div> 
-        <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+        <a class="prev" onclick="plusGaleria(-1, 0)">&#10094;</a>
+        <a class="next" onclick="plusGaleria(1, 0)">&#10095;</a>
     </div>
 
     <!-- SLIDESHOW 2: ONIX -->
     <div class="slideshow-container">
         <div class="mySlides fade">
-            <img src="imagens/onix1.jpg" style="width:100%">
+            <img src="./IMAGENS/onix1.jpg" style="width:100%">
         </div>
         <div class="mySlides fade">
-            <img src="imagens/onix2.jpg" style="width:100%">
+            <img src="./IMAGENS/onix2.png" style="width:100%">
         </div>
         <div class="numbertext"></div> 
-        <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+        <a class="prev" onclick="plusGaleria(-1, 1)">&#10094;</a>
+        <a class="next" onclick="plusGaleria(1, 1)">&#10095;</a>
     </div>
 
     <!-- SLIDESHOW 3: MONZA -->
     <div class="slideshow-container">
         <div class="mySlides fade">
-            <img src="imagens/monza1.jpg" style="width:100%">
+            <img src="./IMAGENS/monza1.jpg" style="width:100%">
         </div>
         <div class="mySlides fade">
-            <img src="imagens/monza2.jpg" style="width:100%">
+            <img src="./IMAGENS/monza2.jpg" style="width:100%">
         </div>
         <div class="numbertext"></div>
-        <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
+        <a class="prev" onclick="plusGaleria(-1, 2)">&#10094;</a>
+        <a class="next" onclick="plusGaleria(1, 2)">&#10095;</a>
     </div>
+</div>
 
-    </div> <div class="footer"> 
-        <p>&copy; NENHUM direitos reservados</p>
-    </div>
+   <footer> 
+        <p>&copy; Todos os direitos reservados</p>
+ </footer>
 
     <script src="./script.js"></script>
 </body>
