@@ -1,133 +1,258 @@
-body {
-    /* O segredo: Colocar o gradiente ANTES da imagem, separados por vírgula */
-    background-image: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.474) 50%, #000000 100%), 
-        url('imagens/porshe.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Mantém o fundo parado ao rolar */
-    background-repeat: no-repeat;
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
-    min-height: 100vh; /* Garante que o fundo ocupe a tela toda */
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    padding: 0;
+    min-height: 100vh; /* Ocupa a altura toda da tela */
+    font-family: "Poppins", sans-serif; 
+    margin: 0;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column; 
+    animation: fadeInPage 0.8s ease-in-out;
+
+    background: linear-gradient(135deg, rgb(19, 18, 17) 60%, rgb(196, 150, 0) 40%);
+   font-family: 'Montserrat', sans-serif;
+}
+
 /* 2. NAVBAR TRANSPARENTE */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.178); /* Fundo semi-transparente */
-    backdrop-filter: blur(10px);          /* Efeito moderno de vidro */
-    height: 50px;                         /* ALTURA DEFINIDA AQUI */
+    background-color: rgba(32, 32, 32, 0.966);
+    /* Fundo semi-transparente */
+    backdrop-filter: blur(10px);
+    /* Efeito moderno de vidro */
+    height: 75px;
+    /* ALTURA DEFINIDA AQUI */
     width: 100%;
-    overflow: hidden;                     /* Importante para limpar os floats dos links */
+    overflow: hidden;
+    /* Importante para limpar os floats dos links */
     position: relative;
     z-index: 10;
 }
-        .navbar a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: 400;
-            transition: 0.7s;
-        }
 
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-.auto {color:yellow}
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 39px;
+    font-weight: 500;
+    transition: 0.7s;
+    filter: drop-shadow(16px 0px 15px black);
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s;
+    transform: translateX(0);
+}
+
+.navbar a.active {
+    background-color: rgb(196, 150, 0);
+    color: #ddd;
+    transition: 0.7s;
+    filter: drop-shadow(20px 0px 15px rgb(126, 107, 0));
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+    filter: drop-shadow(16px 0px 15px rgb(116, 116, 116));
+}
+
+.navbar a.active:hover {
+    background-color: rgb(196, 150, 0);
+    color: #000000;
+    transition: 0.7s;
+    filter: drop-shadow(20px 3px 15px rgb(201, 171, 0));
+}
+
+.navbar.links-hidden a {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    /* Efeito de deslizar para a esquerda ao sumir */
+    pointer-events: none;
+    /* Impede de clicar no link enquanto ele está invisível */
+}
+
+.logo {
+    float: left;
+    filter: drop-shadow(16px 0px 15px black);
+    height: 75px;
+    max-width: 100px;
+    width: auto;
+    object-fit: contain;
+    position: relative;
+    z-index: 11;
+}
+
+.autocor {
+    color: rgb(196, 150, 0);
+}
+
+.destaque { 
+    flex: 1; /* Isso faz esta div "esticar" e empurrar o footer para baixo */
+    padding: 0;
+    margin: 0; 
+}
+
 h1 {
-  font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 100px;
     text-align: center;
     color: white;
-    
     /* Removemos a cor sólida e deixamos transparente */
-    background-color: transparent; 
-    
-    /* Adicionamos sombra ao texto para ele não sumir na foto */
-    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5); 
-    
-    padding: 60px 0; /* Mais espaço para mostrar a imagem */
+    background-color: transparent;
+    padding: 0px 0px;
+    padding-top: 30px;
+    /* Mais espaço para mostrar a imagem */
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: 5px;}
+    letter-spacing: 10px;
+    line-height: 0.8; 
+}
+
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    /* Removemos a cor sólida e deixamos transparente */
+    background-color: transparent;
+
+    /* Adicionamos sombra ao texto para ele não sumir na foto */
+    text-shadow: 2px 4px 10px rgba(255, 255, 255, 0.5);
+
+    padding: 0px 0;
+    padding-bottom: 20px;
+    /* Mais espaço para mostrar a imagem */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+
+}
+.sobrenosmenu{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    /* Removemos a cor sólida e deixamos transparente */
+    background-color: transparent;
+
+    /* Adicionamos sombra ao texto para ele não sumir na foto */
+    text-shadow: 2px 4px 10px rgba(255, 255, 255, 0.5);
+
+    padding: 40px 0px;
+    padding-bottom: 20px;
+    /* Mais espaço para mostrar a imagem */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
 /* Container que organiza as fotos em colunas */
 .galeria-grid {
     display: grid;
     /* Define o tamanho das colunas e permite que elas se repitam */
-    grid-template-columns: repeat(auto-fit, 350px); 
-    
+    grid-template-columns: repeat(auto-fit, 350px);
+    flex: 1; /* Esta linha faz a galeria "esticar" e empurrar o footer para baixo */
     /* O gap define o espaço tanto entre colunas quanto entre linhas */
-    gap: 30px; 
-    
+    gap: 30px;
+
     /* Centraliza o bloco todo na tela */
-    justify-content: center; 
-    
+    justify-content: center;
+
     padding: 20px;
 }
 
 /* Cada card de foto individual */
 .slideshow-container {
     position: relative;
-    background-color: transparent; /* O branco agora só aparece aqui */
-    width: 350px; /* Largura fixa do card */
-    height: 290px; /* Altura fixa do card */
+    background-color: transparent;
+    /* O branco agora só aparece aqui */
+    width: 350px;
+    /* Largura fixa do card */
+    height: 290px;
+    /* Altura fixa do card */
     border-radius: 8px;
-    overflow: hidden; /* Garante que a foto e setas não saiam do box */
-    border: 4px solid hwb(0 11% 89% / 0.932); /* Borda sólida de 4px com uma cor escura (ajuste a cor como quiser) */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Adiciona uma sombra suave para dar profundidade (opcional) */
-    
+    overflow: hidden;
+    /* Garante que a foto e setas não saiam do box */
+    border: 4px solid hwb(0 11% 89% / 0.932);
+    /* Borda sólida de 4px com uma cor escura (ajuste a cor como quiser) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Adiciona uma sombra suave para dar profundidade (opcional) */
+
     /* Garante que a borda seja incluída no tamanho total do elemento */
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 /* A imagem dentro do card */
 .mySlides img {
     width: 100%;
     height: 100%;
-    object-fit: fill; /* Faz a foto preencher o espaço sem distorcer */
+    object-fit: fill;
+    /* Faz a foto preencher o espaço sem distorcer */
 }
+
 /* Garante que os slides fiquem escondidos por padrão, o JS vai mostrar o primeiro */
 .mySlides {
     display: none;
     width: 100%;
     height: 250px;
 }
+
 .numbertext {
-    height: 40px; /* ALTURA FIXA DO TEXTO */
-    line-height: 40px; /* Alinha o texto verticalmente no centro desses 40px */
+    height: 40px;
+    /* ALTURA FIXA DO TEXTO */
+    line-height: 40px;
+    /* Alinha o texto verticalmente no centro desses 40px */
     background-color: lab(26.12% 1.5 1.23 / 0.836);
     color: hsl(0, 0%, 0%);
     font-weight: bold;
     text-align: center;
     font-family: sans-serif;
-    box-sizing: border-box; /* Garante que o padding não aumente o tamanho */
+    box-sizing: border-box;
+    /* Garante que o padding não aumente o tamanho */
 }
+
 /* Botões prev/next (Fixados nas laterais do card branco) */
-.prev, .next {
+.prev,
+.next {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%); /* Centraliza verticalmente certinho */
+    transform: translateY(-50%);
+    /* Centraliza verticalmente certinho */
     width: auto;
     padding: 16px;
     color: white;
     font-weight: bold;
     font-size: 18px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: transparent;
     transition: 0.3s;
     user-select: none;
     text-decoration: none;
 }
 
-.prev { left: 0; border-radius: 0 3px 3px 0; }
-.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
 
-.prev:hover, .next:hover {
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -140,20 +265,230 @@ h1 {
     bottom: 8px;
     width: 100%;
     text-align: center;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 /* Animação de esmaecimento */
+.fade-out {
+    opacity: 0 !important;
+    transition: opacity 0.5s ease-in-out;
+}
+
 .fade {
     animation-name: fade;
     animation-duration: 1.5s;
 }
 
-@keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+        /* Opcional: a página sobe um pouquinho */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-.footer{
-    position:static
+
+footer {
+    width: 100%;
+    background: #161616;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    
+    /* Removemos position: relative ou bottom: 0, 
+       pois o Flexbox do body já cuidará do alinhamento */
+    flex-shrink: 0; /* Garante que o footer não "encolha" */
 }
-p {color:white}
+
+.menuslide {
+    position: relative;
+    width: 100%;
+    /* Largura total da tela */
+    height: 450px;
+    /* Altura que você pode mexer */
+    overflow: hidden;
+    background-color: rgba(22, 255, 73, 0.921);
+    /* Fundo leve para o texto não sumir */
+}
+
+.menubox {
+    display: none;
+    color: aqua;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: calc(100vh - 50px);
+    padding: 30px 0px
+
+    /* Desconta a altura da navbar */
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.1);
+    /* Caixa semi-transparente (moderno) */
+    backdrop-filter: blur(10px);
+    /* Efeito de vidro embaçado */
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    text-align: center;
+    color: white;
+}
+
+.login-container .acesse {
+    color: #ffffff;
+    /* Teste com branco primeiro */
+    background-color: transparent;
+    margin-bottom: 15px;
+    /* Espaçamento para não grudar nos inputs */
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    padding: 6px;
+}
+
+.login-box h2 {
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3f1e12;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.login-box button:hover {
+    background-color: #5a2b1a;
+}
+
+/* Container Principal */
+.menuslide {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    /* Ajuste a altura aqui */
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.616);
+    display: flex;
+    align-items: center;
+}
+
+/* O Slide individual */
+.menubox {
+    display: none;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+
+/* Forçamos o Flex quando o slide está ativo */
+.menubox.active {
+    display: flex;
+}
+
+/* Lados de Texto */
+.side-content {
+    flex: 1;
+    z-index: 2;
+}
+
+.side-content.left {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.side-content.right {
+    text-align: left;
+    padding-left: 20px;
+}
+
+/* Imagem Centralizada */
+.center-image {
+    flex: 1.5;
+    /* Dá mais espaço para a imagem no meio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-image img {
+    max-width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8));
+}
+
+/* CLASSES DE TEXTO EXCLUSIVAS (Não afetam seu h2 ou p do footer) */
+.slide-title {
+    color: rgb(196, 150, 0);
+    font-size: 40px;
+    font-weight: 900;
+    /* Grossura do texto que você pediu */
+    letter-spacing: 5px;
+    /* Espaçamento entre letras que você pediu */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.slide-desc {
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    background: transparent !important;
+    /* Evita herdar fundo preto do seu p global */
+}
+
+.slide-btn {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: rgb(196, 150, 0);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.slide-btn:hover {
+    background: white;
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
