@@ -1,0 +1,104 @@
+/* CSS INTEGRADO PARA GARANTIR QUE FUNCIONE DE PRIMEIRA */
+        
+        :root {
+            /* A cor do seu site (hwb 0 36% 63%) convertida para RGB para o gradiente funcionar */
+            --cor-fundo: #000000; 
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cor-fundo); /* Cor de segurança no fundo */
+        }
+
+        /* CONFIGURAÇÃO DO BACKGROUND COM FADE */
+        body {
+            background: 
+                /* O Gradiente cria o FADE (vai do transparente no topo até a cor do fundo embaixo) */
+                linear-gradient(to bottom, rgba(0,0,0,0.474) 30%, var(--cor-fundo) 90%),
+                url(imagens/porshe.jpg); 
+            
+            background-size: cover;        /* Faz a imagem cobrir a tela toda */
+            background-position: center;   /* Centraliza a imagem */
+            background-attachment: fixed;  /* A imagem não rola com a página */
+            background-repeat: no-repeat;
+        }
+
+        /* NAVBAR (Seguindo seu padrão anterior) */
+       .navbar {
+    background-color: rgba(0, 0, 0, 0.178); /* Fundo semi-transparente */
+    backdrop-filter: blur(10px);          /* Efeito moderno de vidro */
+    height: 50px;                         /* ALTURA DEFINIDA AQUI */
+    width: 100%;
+    overflow: hidden;                     /* Importante para limpar os floats dos links */
+    position: relative;
+    z-index: 10;}
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* CONTEÚDO DO LOGIN */
+        .login-container {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 50px); /* Desconta a altura da navbar */
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.1); /* Caixa semi-transparente (moderno) */
+            backdrop-filter: blur(10px); /* Efeito de vidro embaçado */
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            width: 300px;
+            text-align: center;
+            color: white;
+        }
+
+        .login-box h2 {
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3f1e12;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .login-box button:hover {
+            background-color: #5a2b1a;
+        }
+        p {color:white}

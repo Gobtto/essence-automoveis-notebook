@@ -1,0 +1,345 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+ 
+    font-family: "Poppins", sans-serif;
+
+    /* O segredo: Colocar o gradiente ANTES da imagem, separados por vírgula */
+    /* A mágica acontece aqui */
+    background: linear-gradient(135deg, rgb(19, 18, 17) 60%, rgb(196, 150, 0) 40%);
+    
+    /* Importante para garantir que cubra a tela toda */
+    background-attachment: fixed;
+    background-attachment: fixed; /* Mantém o fundo parado ao rolar */
+    background-repeat: no-repeat;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    min-height: 100vh; /* Garante que o fundo ocupe a tela toda */
+     display: flex;
+    flex-direction: column; /* Organiza os itens (header, main, footer) em coluna */
+    min-height: 100vh;      /* Garante que o corpo tenha no mínimo a altura da tela */
+    animation: fadeInPage 0.8s ease-in-out;
+}
+/* 2. NAVBAR TRANSPARENTE */
+.navbar {
+    background-color: rgba(32, 32, 32, 0.966); /* Fundo semi-transparente */
+    backdrop-filter: blur(10px);          /* Efeito moderno de vidro */
+    height: 75px;                         /* ALTURA DEFINIDA AQUI */
+    width: 100%;
+    overflow: hidden;                     /* Importante para limpar os floats dos links */
+    position: relative;
+    z-index: 10;
+}
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 39px;
+            font-weight: 500;
+            transition: 0.7s;
+            filter:drop-shadow(16px 0px 15px black);
+            opacity: 1;
+            visibility: visible;
+            transition: 0.5s;
+            transform: translateX(0);
+}
+       .navbar a.active {
+            background-color: rgb(196, 150, 0);
+            color:#ddd;
+            transition:0.7s;
+            filter:drop-shadow(20px 0px 15px rgb(126, 107, 0));
+        }
+        
+          .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+            filter:drop-shadow(16px 0px 15px rgb(116, 116, 116));
+        }
+        .navbar a.active:hover {
+            background-color: rgb(196, 150, 0);
+            color:#000000;
+            transition:0.7s;
+            filter:drop-shadow(20px 3px 15px rgb(201, 171, 0));
+        }
+        .navbar.links-hidden a {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px); /* Efeito de deslizar para a esquerda ao sumir */
+    pointer-events: none; /* Impede de clicar no link enquanto ele está invisível */
+}
+        .logo {
+            float:left;
+            filter:drop-shadow(16px 0px 15px black);
+            height: 75px;
+            max-width: 100px;
+            width: auto;
+            object-fit: contain;
+             position: relative;
+             z-index: 11;
+        }
+.auto {color:rgb(196, 150, 0);}
+h1 {
+  font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    
+    /* Removemos a cor sólida e deixamos transparente */
+    background-color: transparent; 
+    
+    /* Adicionamos sombra ao texto para ele não sumir na foto */
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5); 
+    
+    padding: 60px 0; /* Mais espaço para mostrar a imagem */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 5px;}
+    h2 {
+color:#ddd;
+text-align: center;
+font-size: 30px;
+    }
+h3 {
+color:#ddd;
+text-align: center;
+font-size: 20px;
+    }
+/* Container que organiza as fotos em colunas */
+.galeria-grid {
+    display: grid;
+    /* Define o tamanho das colunas e permite que elas se repitam */
+    grid-template-columns: repeat(auto-fit, 350px); 
+    
+    /* O gap define o espaço tanto entre colunas quanto entre linhas */
+    gap: 30px; 
+    
+    /* Centraliza o bloco todo na tela */
+    justify-content: center; 
+    
+    padding: 20px;
+}
+
+/* Cada card de foto individual */
+.slideshow-container {
+    position: relative;
+    background-color: transparent; /* O branco agora só aparece aqui */
+    width: 350px; /* Largura fixa do card */
+    height: 290px; /* Altura fixa do card */
+    border-radius: 8px;
+    overflow: hidden; /* Garante que a foto e setas não saiam do box */
+    border: 4px solid hwb(0 11% 89% / 0.932); /* Borda sólida de 4px com uma cor escura (ajuste a cor como quiser) */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Adiciona uma sombra suave para dar profundidade (opcional) */
+    
+    /* Garante que a borda seja incluída no tamanho total do elemento */
+    box-sizing: border-box; 
+}
+
+/* A imagem dentro do card */
+.mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill; /* Faz a foto preencher o espaço sem distorcer */
+}
+/* Garante que os slides fiquem escondidos por padrão, o JS vai mostrar o primeiro */
+.mySlides {
+    display: none;
+    width: 100%;
+    height: 250px;
+}
+.numbertext {
+    height: 40px; /* ALTURA FIXA DO TEXTO */
+    line-height: 40px; /* Alinha o texto verticalmente no centro desses 40px */
+    background-color: lab(26.12% 1.5 1.23 / 0.836);
+    color: hsl(0, 0%, 0%);
+    font-weight: bold;
+    text-align: center;
+    font-family: sans-serif;
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho */
+}
+/* Botões prev/next (Fixados nas laterais do card branco) */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente certinho */
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+    user-select: none;
+    text-decoration: none;
+}
+
+.prev { left: 0; border-radius: 0 3px 3px 0; }
+.next { right: 0; border-radius: 3px 0 0 3px; }
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Legendas e Textos */
+.text {
+    color: #f2f2f2;
+    font-size: 14px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+}
+
+/* Animação de esmaecimento */
+ .fade-out {
+    opacity: 0 !important;
+    transition: opacity 0.5s ease-in-out;
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(8px); /* Opcional: a página sobe um pouquinho */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }}
+   
+.footer{
+position:fixed;
+bottom: 0;         /* Gruda na borda de baixo (zero de distância) */
+}
+
+  .login-container {
+            display:flex;
+            justify-content: center;
+            align-items:start ;
+            height: calc(100vh - 50px); /* Desconta a altura da navbar */
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.1); /* Caixa semi-transparente (moderno) */
+            backdrop-filter: blur(10px); /* Efeito de vidro embaçado */
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            width: 300px;
+            text-align: center;
+            color: white;
+        }
+.login-container .acesse {
+    color: #ffffff; /* Teste com branco primeiro */
+    background-color: transparent;
+    margin-bottom: 15px; /* Espaçamento para não grudar nos inputs */
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    padding: 6px;
+}
+p {color:white;
+    background-color: #000000;
+    margin-top: auto; /* A "mágica": ele consome todo o espaço vazio acima dele */
+    padding: 20px;
+    text-align: center;
+    width: 100%;}
+
+        .login-box h2 {
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3f1e12;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .login-box button:hover {
+            background-color: #5a2b1a;
+        }
+        .slideshow-inicial {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    height: 500px; /* Você pode ajustar a altura aqui */
+}
+
+.SlideInicial {
+    display: none; /* Escondido por padrão */
+    height: 100%;
+}
+
+.SlideInicial img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem cobrir o espaço sem distorcer */
+}
+
+/* Camada de texto sobre a imagem */
+.texto-slide {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    color: white;
+    background-color: rgba(54, 54, 54, 0.6); /* Fundo preto transparente */
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+}
+.texto-slide p {
+    background: none;
+}
+/* Botões de navegação específicos da Home */
+.prev-home, .next-home {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    background-color: rgba(0,0,0,0.3);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.next-home { right: 0; }
+.prev-home { left: 0; }
+
+.prev-home:hover, .next-home:hover {
+    background-color: rgba(0,0,0,0.8);
+}
